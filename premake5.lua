@@ -1,10 +1,12 @@
 project "imgui"
-	  kind "StaticLib"
+	kind "StaticLib"
     language "C++"
     cppdialect "C++20"
     staticruntime "on"
 
-	  targetdir ("%{wks.location}/Binaries/" .. outputdir .. "/%{prj.name}")
+	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+	targetdir ("%{wks.location}/Binaries/" .. outputdir .. "/%{prj.name}")
     objdir ("%{wks.location}/Intermediate/" .. outputdir .. "/%{prj.name}")
 	
 	files
