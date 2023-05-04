@@ -8,7 +8,7 @@ project "imgui"
 
 	targetdir ("%{wks.location}/Binaries/" .. outputdir .. "/%{prj.name}")
     objdir ("%{wks.location}/Intermediate/" .. outputdir .. "/%{prj.name}")
-	
+
 	files
 	{
 		"imconfig.h",
@@ -35,12 +35,17 @@ project "imgui"
 		cppdialect "C++20"
 		staticruntime "off"
 
-  filter "configurations:Debug"
-    defines "NIT_DEBUG"
-    runtime "Debug"
-    symbols "on"
-    
-  filter "configurations:Release"
-    defines "NIT_RELEASE"
-    runtime "Release"
-    optimize "on"
+    filter "configurations:Debug"
+        defines "NIT_DEBUG"
+        runtime "Debug"
+        symbols "on"
+
+    filter "configurations:EditorRelease"
+        defines "NIT_RELEASE"
+        runtime "Release"
+        optimize "on"
+
+    filter "configurations:GameRelease"
+          defines "NIT_RELEASE"
+          runtime "Release"
+          optimize "on"
